@@ -4,7 +4,7 @@
 //    1  3                  10 7         |
 //   8  9  1              9  10  4       |
 //  4  1  8  3          4   1   8   3    |
-//                    0  0   0   0   0
+//                    0  0   0   0   0       solve sub prob at each level
  public int minimumTotal(List<List<Integer>> triangle)
   {
         int n=triangle.size();
