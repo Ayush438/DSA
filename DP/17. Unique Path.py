@@ -18,3 +18,34 @@
                 else:
                     dp[i][j]=dp[i-1][j]+ dp[i][j-1]
         return dp[m][n]
+
+
+---------------------------------------------------------------------------------------------------------------
+
+#https://leetcode.com/problems/unique-paths-ii/description/?envType=problem-list-v2&envId=dynamic-programming
+
+
+class Solution(object):
+    def uniquePathsWithObstacles(self, obstacleGrid):
+        n,m=len(obstacleGrid), len(obstacleGrid[0])
+        if obstacleGrid[0][0]==1:
+            return 0
+
+        dp=[[0]*(m) for _ in range(n)]
+        dp[0][0]=1
+
+        for i in range(1,n):
+            dp[i][0]=0 if obstacleGrid[i][0]==1 else dp[i-1][0]
+
+        for i in range(1,m):
+            dp[0][i]=0 if obstacleGrid[0][i]==1 else dp[0][i-1]
+
+        for i in range(1,n):
+            for j in range(1,m):
+                if obstacleGrid[i][j]==1:
+                    dp[i][j]=0
+                else:
+                    dp[i][j]=dp[i-1][j]+dp[i][j-1]
+
+        return dp[n-1][m-1]
+        
