@@ -1,3 +1,16 @@
+        1
+       / \
+      2   3
+       \
+        4
+
+Node	HD	Stored?
+1	0	✅
+2	-1	✅
+3	+1	✅
+4	0	❌ (already occupied by 1)
+
+
 class Solution:
     def topView(self, root):
         
