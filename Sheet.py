@@ -12,3 +12,5 @@ Tree:
 9. Tree Boundary Traversal               |
 10. Vertical Order Traversal             |
 11. Top View of Binary Tree              | Day 2
+12. Bottom View                          |
+13. Right Side View                      |
