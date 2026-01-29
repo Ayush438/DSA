@@ -39,3 +39,15 @@ Requirements needed to construct a unique BT
 24. Binary Tree from Inorder and Postorder Traversal |
   
 26. Flatten Binary Tree to Linked List               |
+------------------------------------------------------
+|              BST                                   |
+------------------------------------------------------
+
+1. Ceil in BST
+2. Floor in BST
+3. Insert into a Binary Search Tree
+4. Delete Node in a BST
+5. Kth Smallest Element in a BST
+6. Construct Binary Search Tree from Preorder Traversal
+7. Recover Binary Search Tree
+
