@@ -1,4 +1,9 @@
 # Cycle detection in directed graph
+#(DFS Cycle Detection)
+Use 3 states:
+0 = unvisited
+1 = visiting (cycle detection)
+2 = visited
 
 
 from collections import defaultdict, deque
