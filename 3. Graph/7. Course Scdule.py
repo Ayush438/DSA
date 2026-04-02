@@ -6,33 +6,32 @@ Use 3 states:
 2 = visited
 
 
-from collections import defaultdict, deque
-
 class Solution:
-    def canFinish(self, numCourses: int, prerequisites):
-        graph = defaultdict(list)
-        indegree = [0] * numCourses
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
 
-        # build graph
-        for a, b in prerequisites:
-            graph[b].append(a)
-            indegree[a] += 1
+        graph=defaultdict(list)
+        for i,j in prerequisites:
+            graph[j].append(i)
 
-        # queue for nodes with indegree 0
-        queue = deque()
+        state=[0]*numCourses
+
+        def dfs(node):
+            if state[node]==1:
+                return True
+            if state[node]==2:
+                return False
+
+            state[node]=1
+            for nei in graph[node]:
+                if dfs(nei):
+                    return True
+            state[node]=2
+            return False
+
+
         for i in range(numCourses):
-            if indegree[i] == 0:
-                queue.append(i)
-
-        count = 0
-
-        while queue:
-            node = queue.popleft()
-            count += 1
-
-            for neighbor in graph[node]:
-                indegree[neighbor] -= 1
-                if indegree[neighbor] == 0:
-                    queue.append(neighbor)
-
-        return count == numCourses
+            if dfs(i):
+                return False
+        
+        return True
+            
