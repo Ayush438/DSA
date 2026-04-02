@@ -4,7 +4,7 @@ Use 3 states:
 0 = unvisited
 1 = visiting (cycle detection)
 2 = visited
-
+Run DFS; if a node is revisited while state = 1, a cycle exists.
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
