@@ -40,8 +40,8 @@ static ssize_t my_write(struct file *file, const char __user *user_buf, size_t l
 
 // ---------------- FILE OPERATIONS STRUCT ----------------
 
-static struct file_operations fops = {
-    .owner = THIS_MODULE,
+static struct file_operations fops = {						//That structure is the heart of a Linux character driver. Without it, the kernel has no idea how to talk to your device.
+    .owner = THIS_MODULE,									//struct file_operations is a function pointer table that tells the kernel: “If user does X → call this function in my driver”
     .open = my_open,
     .release = my_release,
     .read = my_read,
