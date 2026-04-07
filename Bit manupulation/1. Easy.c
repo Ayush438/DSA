@@ -13,7 +13,7 @@
 5. power of 2
     if( n != 0 && (n & (n - 1)) == 0)
 
-6. Turn on right most set bit
+6. Turn on right most unset bit
     n=n | (n+1)
 
 7. Isolate the rightmost set bit/ position of LSB set.
