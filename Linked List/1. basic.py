@@ -38,3 +38,25 @@ def detectCycle(self, head):
 #Because of this, the distance from head to loop start becomes equal to the distance from meeting point to loop start.
 #So if one pointer starts from head and the other from the meeting point, and both move one step at a time,
 #They will meet exactly at the starting node of the loop.
+
+---------------------------------------------------------
+#Find length of Loop
+
+    def lengthOfLoop(self, head):       
+        slow=fast=head
+        
+        while fast and fast.next:
+            slow=slow.next
+            fast=fast.next.next
+            
+            if slow==fast:
+                temp=slow.next
+                count=1
+                
+                while temp!=slow:
+                    temp=temp.next
+                    count+=1
+                return count
+        return 0
+
+---------------------------------------------------------
