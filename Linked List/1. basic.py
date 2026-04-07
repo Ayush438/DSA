@@ -60,3 +60,27 @@ def detectCycle(self, head):
         return 0
 
 ---------------------------------------------------------
+#Odd and even LL
+#            The first node is considered odd, and the second node is even, and so on.
+
+def oddEvenList(self, head):
+        if not head or not head.next:
+            return head
+
+        odd = head
+        even = head.next
+        even_head = even  # store start of even list
+
+        while even and even.next:
+            # connect odd nodes
+            odd.next = even.next
+            odd = odd.next
+
+            # connect even nodes
+            even.next = odd.next
+            even = even.next
+
+        # attach even list after odd list
+        odd.next = even_head
+
+        return head
