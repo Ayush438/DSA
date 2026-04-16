@@ -33,3 +33,27 @@
 11. set bit from pos p to q
     mask = ((1 << (q - p + 1)) - 1) << (p - 1)
     return n | mask
+
+12. Count number of bits to flip to convert A → B
+     int x = A ^ B; int count = 0;
+     while (x) {
+        x = x & (x - 1);  // removes lowest set bit
+        count++; }
+
+13. Find two unique numbers 
+
+    for (int i = 0; i < n; i++)
+        xor_all ^= arr[i];
+
+    int set_bit = xor_all & -xor_all; // Find any set bit in this result (where a and b differ)
+    int num1 = 0, num2 = 0;
+
+    for (int i = 0; i < n; i++) { //Divide numbers into two groups based on that bit,     The two results are the unique numbers
+        if (arr[i] & set_bit)
+            num1 ^= arr[i];
+        else
+            num2 ^= arr[i];
+
+14. Add two num without +
+    sum = a ^ b;          // sum without carry
+    carry = (a & b) << 1; // carry
