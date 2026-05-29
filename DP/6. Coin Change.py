@@ -3,12 +3,15 @@
 #Greedy approach will fail : [1 5 6 9]  target =11
 
 #DP approach:  |amount|  0   1  2  3  4  5  6  7  8  9  10  11  |
-#  min coin    |      |  0   1  2  3  4  1  1  2  3  1   2   3
+#  min coin    |      |  0   1  2  3  4  1  1  2  3  1   2   2
 
 # amountto make=  5
 #coin choice  =    case1 choose coin1              | case2 choose coin 5
 #                      1+ DP[4]  =1+4=5            |  1+DP[0]=1    
 # min (1,5)=1
+
+
+#dp[amount]=min(dp[amount],1+dp[amount−coin])                choose current coin, and remaining amount solved using previous DP
 
 def coinChange(self, coins, amount):
         if amount==0: return 0
