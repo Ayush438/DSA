@@ -22,22 +22,23 @@
   B        C      
 
 
-    
-class Solution(object):
-    def robber(self, root):
-        if root==None:
-            return [0,0]
 
-        left=self.robber(root.left)
-        right=self.robber(root.right)
+class Solution:
+    def dfs(self, root):
 
-        rob=root.val+left[1]+right[1]
-        not_rob=max(left[0],left[1])+max(right[0],right[1])
+        if not root:
+            return [0, 0]
 
-        return [rob,not_rob]
+        left = self.dfs(root.left)
+        right = self.dfs(root.right)
+
+        rob = root.val + left[1] + right[1]                               # If current node is robbed
+        not_rob = max(left[0], left[1]) + max(right[0], right[1])         # If current node is not robbed
+
+        return [rob, not_rob]
 
     def rob(self, root):
-        temp=self.robber(root)
-        return max(temp[0],temp[1])
+        ans = self.dfs(root)
+        return max(ans[0], ans[1])
 
     
