@@ -231,3 +231,50 @@ print(max_continious([2, 6, 1, 9, 4, 5, 3]))'''
                     )
 
         return dp[n][m]'''
+
+#149 Max poins
+'''class Solution(object):
+    def maxPoints(self, points):
+      
+      ans=1
+      for i in range(len(points)):
+        p1=points[i]
+        count=defaultdict(int)
+        for j in range(i+1, len(points)):
+            p2=points[j]
+
+            if p1[0]==p2[0]:
+                slope=float('inf')
+            else:
+                slope=(p2[1]-p1[1])/(p2[0]-p1[0])
+            count[slope]+=1
+            ans=max(ans, count[slope]+1)
+        return ans'''
+
+#127 Word Ladder
+'''
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+
+        wordSet=set(wordList)
+        if endWord not in wordList:
+            return 0
+
+        queue=deque([(beginWord,1)])
+
+        while queue:
+            word, level=queue.popleft()
+
+            if word==endWord:
+                return level
+            
+            for i in range(len(word)):
+                for ch in 'abcdefghijklmnopqrstuvwxyz':
+                    new_word= word[:i]+ ch + word[i+1:]  
+
+                    if new_word in wordSet:
+                        queue.append((new_word , level+1))
+                        wordSet.remove(new_word)
+            
+        return 0'''
+        
